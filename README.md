@@ -9,7 +9,7 @@ Esta aplicação web auxilia na verificação dos documentos necessários para o
 ## Acesso Online
 
 A aplicação está disponível online através do GitHub Pages:
-[https://victorMill.github.io/checklist_documentos_prd](https://victorMill.github.io/checklist_documentos_prd)
+[https://victorMill.github.io/auxiliar-de-PRD](https://victorMill.github.io/auxiliar-de-PRD)
 
 ## Desenvolvimento Local
 
@@ -22,8 +22,8 @@ A aplicação está disponível online através do GitHub Pages:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/victorMill/checklist_documentos_prd.git
-   cd checklist_documentos_prd
+   git clone https://github.com/victorMill/auxiliar-de-PRD.git
+   cd auxiliar-de-PRD
    ```
 
 2. Instale as dependências:
@@ -54,7 +54,7 @@ Para fazer deploy da aplicação no GitHub Pages:
 ## Estrutura do Projeto
 
 ```
-checklist_documentos_prd/
+auxiliar-de-PRD/
 ├── css/
 │   └── styles.css
 ├── data/

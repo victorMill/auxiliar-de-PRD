@@ -2,7 +2,7 @@
   "name": "checklist-documentos-bnb",
   "version": "1.0.0",
   "description": "Verificador de documentos necessários para operações do BNB",
-  "homepage": "https://victorMill.github.io/checklist_documentos_prd",
+  "homepage": "https://victorMill.github.io/auxiliar-de-PRD",
   "scripts": {
     "start": "npx http-server . -o",
     "test": "echo \"Error: no test specified\" && exit 1",
