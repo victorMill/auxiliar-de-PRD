@@ -1,0 +1,106 @@
+
+{
+  "documentos": {
+    "CND": {
+      "nome": "Certidão Negativa de Débitos",
+      "regras": [
+        {
+          "descricao": "Regra P-FIES",
+          "condicoes": {
+            "programa": ["p-fies"]
+          }
+        },
+        {
+          "descricao": "Regra COMIN com FNE",
+          "condicoes": {
+            "comin": ["nao"],
+            "fonte": ["fne"],
+            "atualizacao": ["encargos judiciais"]
+          }
+        },
+        {
+          "descricao": "Regra COMIN com BNDES ou outros",
+          "condicoes": {
+            "comin": ["nao"],
+            "fonte": ["bndes", "diferente de bndes"],
+            "atualizacao": ["poupanca/cdi"]
+          }
+        },
+        {
+          "descricao": "Regra Micro/Mini/Pequeno",
+          "condicoes": {
+            "fonte": ["diferente de bndes", "fne"],
+            "porte": ["micro/mini/pequeno"],
+            "cadin": ["nao", "sim na operacao"],
+            "comin": ["nao"]
+          }
+        },
+        {
+          "descricao": "Regra Pessoa Física",
+          "condicoes": {
+            "fonte": ["diferente de bndes", "fne"],
+            "porte": ["pessoa fisica"],
+            "renda": {
+              "maximo": 4.8
+            },
+            "cadin": ["nao", "sim na operacao"]
+          }
+        },
+        {
+          "descricao": "Regra Empréstimo Pessoa Física",
+          "condicoes": {
+            "porte": ["pessoa fisica"],
+            "finalidade": ["emprestimo"],
+            "mao_de_obra": ["nao"]
+          }
+        }
+      ]
+    },
+    "CRF": {
+      "nome": "Certificado de Regularidade do FGTS",
+      "regras": [
+        {
+          "descricao": "Regra básica CRF",
+          "condicoes": {
+            "fonte": ["diferente de bndes", "fne"],
+            "porte": ["micro/mini/pequeno"],
+            "cadin": ["nao"]
+          }
+        }
+      ]
+    },
+    "CNDT": {
+      "nome": "Certidão Negativa de Débitos Trabalhistas",
+      "regras": [
+        {
+          "descricao": "Regra Garantia Real",
+          "condicoes": {
+            "garantia_real": ["nao"]
+          }
+        }
+      ]
+    },
+    "DECLARACAO_NAO_EMPREGADOR": {
+      "nome": "Declaração de Não Empregador de Mão de Obra",
+      "regras": [
+        {
+          "descricao": "Regra Não Empregador",
+          "condicoes": {
+            "mao_de_obra": ["nao"]
+          }
+        }
+      ]
+    },
+    "AUTORIZACAO_DEBITO": {
+      "nome": "Autorização de Débito em Conta",
+      "regras": [
+        {
+          "descricao": "Regra Conta Corrente",
+          "condicoes": {
+            "conta_corrente": ["nao"]
+          }
+        }
+      ]
+    }
+  }
+}

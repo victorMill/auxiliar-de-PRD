@@ -1,0 +1,14 @@
+{
+  "name": "checklist-documentos",
+  "version": "1.0.0",
+  "description": "Sistema de verificação de documentos necessários",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --watch ./src/server/server.js",
+    "dev": "nodemon --watch ./src/server/server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+} 

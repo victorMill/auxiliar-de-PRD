@@ -1,0 +1,96 @@
+{
+  "tipos_documentos": {
+    "CND": {
+      "nome": "Certidão Negativa de Débitos",
+      "descricao": "Documento que comprova a inexistência de débitos",
+      "validade": "90 dias",
+      "campos_relacionados": ["fonte", "porte", "cadin", "comin", "programa"],
+      "norma": "3102-03-21",
+      "norma_url": "",
+      "modelo_url_pf": "https://servicos.receita.fazenda.gov.br/Servicos/certidaointernet/PF/Emitir",
+      "modelo_url_pj": "https://solucoes.receita.fazenda.gov.br/Servicos/certidaointernet/PJ/Emitir"
+    },
+    "CRF": {
+      "nome": "Certificado de Regularidade do FGTS",
+      "descricao": "Comprova regularidade do FGTS",
+      "validade": "30 dias",
+      "campos_relacionados": ["fonte", "porte", "cadin"],
+      "norma": "",
+      "norma_url": "",
+      "modelo_url": "https://consulta-crf.caixa.gov.br/"
+    },
+    "CNDT": {
+      "nome": "Certidão Negativa de Débitos Trabalhistas",
+      "descricao": "Comprova ausência de débitos trabalhistas",
+      "validade": "180 dias",
+      "campos_relacionados": ["garantia_real"],
+      "norma": "",
+      "norma_url": "",
+      "modelo_url": "https://cndt-certidao.tst.jus.br/inicio.faces"
+    },
+    "DECLARACAO_NAO_EMPREGADOR": {
+      "nome": "Declaração de Não Empregador de Mão de Obra",
+      "descricao": "Declara que não emprega mão de obra",
+      "validade": "na data",
+      "campos_relacionados": ["mao_de_obra"],
+      "norma": "",
+      "norma_url": "",
+      "modelo_url": ""
+    },
+    "AUTORIZACAO_DEBITO": {
+      "nome": "Autorização de Débito em Conta",
+      "descricao": "Autoriza débitos automáticos em conta corrente",
+      "validade": "até cancelamento",
+      "campos_relacionados": ["conta_corrente"],
+      "norma": "",
+      "norma_url": "",
+      "modelo_url": ""
+    }
+  },
+  "campos_disponiveis": {
+    "fonte": {
+      "tipo": "select",
+      "valores": ["fne", "bndes", "diferente de bndes", "nao se aplica"]
+    },
+    "cadin": {
+      "tipo": "select",
+      "valores": ["sim", "nao", "sim na operacao", "nao se aplica"]
+    },
+    "programa": {
+      "tipo": "select",
+      "valores": ["p-fies", "nao se aplica"]
+    },
+    "porte": {
+      "tipo": "select",
+      "valores": ["micro/mini/pequeno", "pessoa fisica", "nao se aplica"]
+    },
+    "renda": {
+      "tipo": "numero",
+      "unidade": "salarios_minimos"
+    },
+    "mao_de_obra": {
+      "tipo": "select",
+      "valores": ["sim", "nao", "nao se aplica"]
+    },
+    "comin": {
+      "tipo": "select",
+      "valores": ["sim", "nao", "nao se aplica"]
+    },
+    "conta_corrente": {
+      "tipo": "select",
+      "valores": ["sim", "nao"]
+    },
+    "garantia_real": {
+      "tipo": "select",
+      "valores": ["sim", "nao"]
+    },
+    "atualizacao": {
+      "tipo": "select",
+      "valores": ["encargos judiciais", "poupanca/cdi", "inferior encargos judiciais", "inferior poupanca/cdi", "nao se aplica"]
+    },
+    "finalidade": {
+      "tipo": "select",
+      "valores": ["emprestimo", "nao se aplica"]
+    }
+  }
+} 

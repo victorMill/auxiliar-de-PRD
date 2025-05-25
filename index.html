@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verificação de Documentos</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Cores principais */
+      :root {
+        --primary-color: #800000; /* Vinho */
+        --secondary-color: #f58220; /* Laranja */
+        --background-color: #f4f4f4; /* Cinza claro */
+        --text-color: #333; /* Preto suave */
+        --white: #ffffff;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        min-height: 100vh;
+        display: flex;
+      }
+
+      .sidebar {
+        width: 250px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 20px;
+        height: 100vh;
+        position: fixed;
+      }
+
+      .sidebar h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sidebar ul li {
+        margin: 15px 0;
+      }
+
+      .sidebar ul li a {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 16px;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .sidebar ul li a:hover {
+        background-color: var(--secondary-color);
+      }
+
+      .content {
+        margin-left: 250px;
+        padding: 20px;
+        width: calc(100% - 250px);
+      }
+
+      h1 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Barra lateral -->
+    <div class="sidebar">
+      <h2>Menu</h2>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            href="#gerador-parecer"
+            data-bs-toggle="tab"
+            >Gerador de Parecer</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#checklists" data-bs-toggle="tab"
+            >Checklists</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+      <div class="tab-content">
+        <!-- Aba Gerador de Parecer -->
+        <div class="tab-pane fade show active" id="gerador-parecer">
+          <h1>Gerador de Parecer</h1>
+          <p>Conteúdo relacionado ao Gerador de Parecer será exibido aqui.</p>
+        </div>
+
+        <!-- Aba Checklists -->
+        <div class="tab-pane fade" id="checklists">
+          <h1>Checklists</h1>
+          <form id="formDocumentos">
+            <div class="form-grid row">
+              <!-- Fonte -->
+              <div class="col-md-6">
+                <label for="fonte">Fonte:</label>
+                <select id="fonte" name="fonte" class="form-select">
+                  <option value="">Selecione</option>
+                  <option value="fne">FNE</option>
+                  <option value="bndes">BNDES</option>
+                  <option value="diferente de bndes">Diferente de BNDES</option>
+                  <option value="nao se aplica">Não se aplica</option>
+                </select>
+              </div>
+
+              <!-- CADIN -->
+              <div class="col-md-6">
+                <label for="cadin">CADIN:</label>
+                <select id="cadin" name="cadin" class="form-select">
+                  <option value="">Selecione</option>
+                  <option value="sim">Sim</option>
+                  <option value="nao">Não</option>
+                  <option value="sim na operacao">Sim na operação</option>
+                  <option value="nao se aplica">Não se aplica</option>
+                </select>
+              </div>
+
+              <!-- Programa -->
+              <div class="col-md-6">
+                <label for="programa">Programa:</label>
+                <select id="programa" name="programa" class="form-select">
+                  <option value="">Selecione</option>
+                  <option value="p-fies">P-FIES</option>
+                  <option value="nao se aplica">Não se aplica</option>
+                </select>
+              </div>
+
+              <!-- Porte -->
+              <div class="col-md-6">
+                <label for="porte">Porte:</label>
+                <select id="porte" name="porte" class="form-select">
+                  <option value="">Selecione</option>
+                  <option value="micro/mini/pequeno">Micro/Mini/Pequeno</option>
+                  <option value="pessoa fisica">Pessoa Física</option>
+                  <option value="nao se aplica">Não se aplica</option>
+                </select>
+              </div>
+
+              <!-- Garantia Real -->
+              <div class="col-md-6">
+                <label for="garantia_real">Garantia Real:</label>
+                <select
+                  id="garantia_real"
+                  name="garantia_real"
+                  class="form-select"
+                >
+                  <option value="">Selecione</option>
+                  <option value="sim">Sim</option>
+                  <option value="nao">Não</option>
+                </select>
+              </div>
+
+              <!-- Renda -->
+              <div class="col-md-6">
+                <label for="renda">Renda:</label>
+                <input
+                  type="text"
+                  id="renda"
+                  name="renda"
+                  class="form-control"
+                  oninput="formatarMoeda(this)"
+                />
+              </div>
+
+              <!-- Mão de Obra -->
+              <div class="col-md-6">
+                <label for="mao_de_obra">Emprego Mão de Obra:</label>
+                <select id="mao_de_obra" name="mao_de_obra" class="form-select">
+                  <option value="">Selecione</option>
+                  <option value="sim">Sim</option>
+                  <option value="nao">Não</option>
+                  <option value="nao se aplica">Não se aplica</option>
+                </select>
+              </div>
+
+              <!-- COMIN -->
+              <div class="col-md-6">
+                <label for="comin">COMIN:</label>
+                <select id="comin" name="comin" class="form-select">
+                  <option value="">Selecione</option>
+                  <option value="sim">Sim</option>
+                  <option value="nao">Não</option>
+                  <option value="nao se aplica">Não se aplica</option>
+                </select>
+              </div>
+
+              <!-- Atualização -->
+              <div class="col-md-6">
+                <label for="atualizacao">Atualização:</label>
+                <select id="atualizacao" name="atualizacao" class="form-select">
+                  <option value="">Selecione</option>
+                  <option value="encargos judiciais">Encargos Judiciais</option>
+                  <option value="poupanca/cdi">Poupança/CDI</option>
+                  <option value="inferior encargos judiciais">
+                    Inferior Encargos Judiciais
+                  </option>
+                  <option value="inferior poupanca/cdi">
+                    Inferior Poupança/CDI
+                  </option>
+                  <option value="nao se aplica">Não se aplica</option>
+                </select>
+              </div>
+
+              <!-- Finalidade -->
+              <div class="col-md-6">
+                <label for="finalidade">Finalidade:</label>
+                <select id="finalidade" name="finalidade" class="form-select">
+                  <option value="">Selecione</option>
+                  <option value="emprestimo">Empréstimo</option>
+                  <option value="nao se aplica">Não se aplica</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Botão para verificar os documentos -->
+            <button
+              type="button"
+              class="btn btn-primary mt-3"
+              onclick="verificarDocumentos()"
+            >
+              Verificar Documentos
+            </button>
+
+            <!-- Div para exibir os resultados -->
+            <div id="resultado" class="mt-4"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
