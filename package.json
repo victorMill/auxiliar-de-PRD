@@ -4,7 +4,7 @@
   "description": "Verificador de documentos necessários para operações do BNB",
   "homepage": "https://victorMill.github.io/auxiliar-de-PRD",
   "scripts": {
-    "start": "npx http-server . -o",
+    "start": "npx --watch http-server . -o",
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d .",

@@ -1,15 +1,41 @@
-/* Cores principais */
+/**
+ * Checklist de Documentos BNB - Estilos
+ * 
+ * Este arquivo contém todos os estilos da aplicação, organizados em seções lógicas.
+ * 
+ * Estrutura:
+ * 1. Variáveis e Configurações Globais
+ * 2. Layout Base
+ * 3. Sidebar
+ * 4. Formulário
+ * 5. Lista de Documentos
+ * 6. Modal CND
+ * 7. Notificações
+ * 8. Responsividade
+ * 9. Estilos de Impressão
+ */
+
+/* ==========================================================================
+   1. Variáveis e Configurações Globais
+   ========================================================================== */
+
 :root {
-  --primary-color: #6E1F3D; /* Wine/Burgundy BNB */
-  --secondary-color: #F58220; /* Laranja BNB */
+  /* Cores Principais */
+  --primary-color: #6E1F3D;    /* Wine/Burgundy BNB */
+  --hover-wine: #5a1932;       /* Hover do Wine */
+  --secondary-color: #F58220;  /* Laranja BNB */
+  --secondary-color-dark: #d96d13;   /* Laranja escuro para hover */
+  --secondary-color-darker: #bf5f11;  /* Laranja mais escuro para active */
+  
+  /* Cores Neutras */
   --background-color: #ffffff; /* Branco */
-  --text-color: #666666; /* Cinza */
+  --text-color: #666666;      /* Cinza texto */
   --white: #ffffff;
   --border-color: #dee2e6;
   --light-gray: #f8f9fa;
-  --hover-wine: #5a1932;
 }
 
+/* Estilos Base */
 body {
   font-family: 'Open Sans', Arial, sans-serif;
   background-color: var(--background-color);
@@ -18,6 +44,28 @@ body {
   display: flex;
   margin: 0;
 }
+
+/* ==========================================================================
+   2. Layout Base
+   ========================================================================== */
+
+.content {
+  margin-left: 280px;
+  padding: 40px;
+  width: calc(100% - 280px);
+  background-color: var(--background-color);
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   3. Sidebar
+   ========================================================================== */
 
 .sidebar {
   width: 280px;
@@ -63,21 +111,10 @@ body {
   color: var(--white);
 }
 
-.content {
-  margin-left: 280px;
-  padding: 40px;
-  width: calc(100% - 280px);
-  background-color: var(--background-color);
-}
+/* ==========================================================================
+   4. Formulário
+   ========================================================================== */
 
-h1 {
-  color: var(--primary-color);
-  margin-bottom: 30px;
-  font-size: 28px;
-  font-weight: 600;
-}
-
-/* Estilos do formulário */
 .form-container {
   background-color: var(--white);
   padding: 30px;
@@ -97,10 +134,6 @@ h1 {
   font-size: 14px;
 }
 
-.form-label i {
-  color: var(--text-color);
-}
-
 .form-select, .form-control {
   width: 100%;
   padding: 0.75rem;
@@ -109,7 +142,7 @@ h1 {
   transition: all 0.3s ease;
   font-size: 14px;
   color: var(--text-color);
-  background-color: #f8f9fa;
+  background-color: var(--light-gray);
 }
 
 .form-select:focus, .form-control:focus {
@@ -119,6 +152,7 @@ h1 {
   background-color: var(--white);
 }
 
+/* Botões do Formulário */
 .btn-verificar {
   background-color: var(--primary-color);
   color: var(--white);
@@ -137,21 +171,113 @@ h1 {
   transform: translateY(-1px);
 }
 
+.btn-imprimir {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn-imprimir:hover {
+  background-color: var(--secondary-color-dark);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.btn-imprimir:active,
+.btn-imprimir:focus {
+  background-color: var(--secondary-color-darker);
+  color: var(--white);
+}
+
+/* Validação de Formulário */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+  border-color: #198754;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: #dc3545;
+}
+
+/* ==========================================================================
+   5. Lista de Documentos
+   ========================================================================== */
+
+/* Loading State */
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-color);
+}
+
+.loading-state i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.loading-state p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Alert Messages */
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.alert-info {
+  background-color: #cce5ff;
+  border: 1px solid #b8daff;
+  color: #004085;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.alert i {
+  font-size: 1.1rem;
+}
+
+/* Result Container */
 .result-container {
   margin-top: 2rem;
   padding: 2rem;
   border-radius: 8px;
   background-color: var(--white);
   box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-}
-
-.error-message {
-  color: #dc3545;
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 4px;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
 }
 
 .document-list {
@@ -185,13 +311,7 @@ h1 {
   line-height: 1.4;
 }
 
-.document-descricao {
-  margin-top: 0.5rem;
-  color: var(--text-color);
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
+/* Links de Documentos */
 .document-link,
 .norma-link {
   color: var(--secondary-color);
@@ -209,19 +329,12 @@ h1 {
   text-decoration: underline;
 }
 
-.norma-link {
-  margin-left: 8px;
-  font-size: 12px;
-}
-
-.document-item:hover {
-  transform: translateX(5px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.document-reason {
-  color: #666;
-  font-style: italic;
+/* Informações Adicionais */
+.document-descricao {
+  margin-top: 0.5rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .document-norma,
@@ -232,42 +345,6 @@ h1 {
   align-items: center;
   gap: 0.5rem;
   line-height: 1.4;
-}
-
-.document-norma {
-  margin-bottom: 0.25rem;
-  color: var(--text-color);
-}
-
-.document-norma a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  font-size: inherit;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.document-norma a:hover {
-  color: var(--secondary-color);
-  text-decoration: underline;
-}
-
-.document-norma i,
-.document-validade i {
-  color: inherit;
-  font-size: 1em;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 16px;
-}
-
-.document-validade {
-  color: var(--secondary-color);
-  font-weight: 500;
 }
 
 .document-observacao {
@@ -284,13 +361,75 @@ h1 {
   gap: 0.5rem;
 }
 
-.document-observacao i {
-  color: #856404;
-  font-size: 1.1em;
-  margin-top: 0.1rem;
+/* ==========================================================================
+   6. Modal CND
+   ========================================================================== */
+
+.modal-content {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
-/* Responsividade */
+.modal-header {
+  border-bottom: 2px solid var(--primary-color);
+  padding: 1.5rem;
+}
+
+.modal-title {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+/* ==========================================================================
+   7. Notificações
+   ========================================================================== */
+
+.save-notification,
+.error-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.save-notification {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error-notification {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   8. Responsividade
+   ========================================================================== */
+
 @media (max-width: 992px) {
   .content {
     margin-left: 0;
@@ -313,165 +452,119 @@ h1 {
   }
 }
 
-/* Form validation styles */
-.form-control.is-invalid,
-.form-select.is-invalid {
-    border-color: #dc3545;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right calc(0.375em + 0.1875rem) center;
-    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+/* ==========================================================================
+   9. Estilos de Impressão
+   ========================================================================== */
+
+/* Print Header */
+#print-header {
+  display: none;
+  margin-bottom: 2rem;
 }
 
-.form-control.is-valid,
-.form-select.is-valid {
-    border-color: #198754;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right calc(0.375em + 0.1875rem) center;
-    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+#parametros-consulta {
+  margin-bottom: 1.5rem;
 }
 
-.invalid-feedback {
-    display: block;
-    width: 100%;
-    margin-top: 0.25rem;
-    font-size: 0.875em;
-    color: #dc3545;
-}
+@media print {
+  /* Reset margins */
+  @page {
+    margin: 2cm;
+  }
 
-/* Notification styles */
-.save-notification,
-.error-notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 15px 25px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 500;
-    z-index: 1000;
-    animation: slideIn 0.3s ease-out;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
+  /* Hide elements not needed for printing */
+  .no-print,
+  .sidebar,
+  #formDocumentos .row,
+  #button-container {
+    display: none !important;
+  }
 
-.save-notification {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
+  /* Reset content margins */
+  .content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
 
-.error-notification {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Reset button styles */
-.btn-outline-secondary {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-    background-color: transparent;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-secondary:hover {
-    color: var(--white);
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-/* Loading spinner animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.fa-spin {
-    animation: spin 1s linear infinite;
-}
-
-.alert-info {
-  background-color: #f8f9fa;
-  border-color: var(--border-color);
-  color: var(--text-color);
-}
-
-/* Add styles for icons in headings and alerts */
-h1 i, 
-.alert i,
-.content i {
-  color: var(--text-color);
-}
-
-/* Keep sidebar icons white */
-.sidebar i {
-  color: var(--white);
-}
-
-/* CND Modal Styles */
-.btn-link {
-    background: none;
-    border: none;
+  /* Show and style the print header */
+  #print-header {
+    display: block !important;
     padding: 0;
-    color: var(--secondary-color);
-    text-decoration: none;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
+    margin-bottom: 2rem;
+    box-shadow: none;
+    background-color: white !important;
+  }
 
-.btn-link:hover {
-    color: var(--primary-color);
+  /* Style the parameters section */
+  #parametros-consulta {
+    border: 1px solid var(--border-color);
+    background-color: white !important;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Style the document list container */
+  .result-container {
+    margin-top: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure proper page breaks */
+  .document-item {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Print-specific typography */
+  body {
+    font-size: 12pt;
+    line-height: 1.3;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  /* Hide background colors and shadows */
+  * {
+    background-color: white !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure links are visible */
+  a {
     text-decoration: underline;
+  }
+
 }
 
-.modal-content {
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-}
-
-.modal-header {
-    border-bottom: 2px solid var(--primary-color);
-    padding: 1.5rem;
-}
-
-.modal-title {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.modal-body {
-    padding: 1.5rem;
-}
-
-.btn-lg {
-    padding: 1rem;
-    font-size: 1.1rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.btn-lg:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.btn-lg i {
-    font-size: 1.2rem;
-} 
+/**
+ * GUIA DE MANUTENÇÃO DOS ESTILOS
+ * 
+ * Para modificar cores:
+ * 1. Altere as variáveis CSS no :root
+ * 2. As cores principais são:
+ *    - --primary-color: Cor principal (vinho BNB)
+ *    - --secondary-color: Cor secundária (laranja BNB)
+ * 
+ * Para ajustar o layout:
+ * 1. Sidebar tem largura fixa de 280px
+ * 2. Content tem margem esquerda igual à largura da sidebar
+ * 
+ * Para modificar estilos de componentes:
+ * 1. Cada componente tem sua própria seção com comentários
+ * 2. Classes seguem padrão BEM-like
+ * 3. Transições e animações usam 0.3s ease
+ * 
+ * Para ajustar responsividade:
+ * 1. Breakpoint principal em 992px
+ * 2. Sidebar se torna móvel
+ * 3. Content ocupa largura total
+ * 
+ * Para modificar impressão:
+ * 1. Todos os estilos de impressão estão na última seção
+ * 2. Use !important para garantir sobreposição
+ * 3. Cores são convertidas para preto e branco
+ */ 
