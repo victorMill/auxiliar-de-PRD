@@ -9,7 +9,7 @@ Esta aplicação web auxilia na verificação dos documentos necessários para o
 ## Acesso Online
 
 A aplicação está disponível online através do GitHub Pages:
-[https://milhomem.github.io/checklist_documentos_prd](https://milhomem.github.io/checklist_documentos_prd)
+[https://victorMill.github.io/checklist_documentos_prd](https://victorMill.github.io/checklist_documentos_prd)
 
 ## Desenvolvimento Local
 
@@ -22,7 +22,7 @@ A aplicação está disponível online através do GitHub Pages:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/milhomem/checklist_documentos_prd.git
+   git clone https://github.com/victorMill/checklist_documentos_prd.git
    cd checklist_documentos_prd
    ```
 
