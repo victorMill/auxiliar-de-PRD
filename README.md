@@ -1,59 +1,73 @@
-# Checklist de Documentos
+# Checklist de Documentos BNB
 
-Sistema para verificação de documentos necessários baseado em regras de negócio do BNB.
+Verificador de documentos necessários para operações do BNB.
 
 ## Descrição
 
-Este sistema verifica quais documentos são necessários com base em diversos parâmetros como fonte de recursos, programa, porte da empresa, etc. O sistema usa um conjunto de regras de dispensa para determinar quando um documento NÃO é necessário.
+Esta aplicação web auxilia na verificação dos documentos necessários para operações do Banco do Nordeste do Brasil (BNB), baseando-se em diversos parâmetros como fonte de recursos, porte da empresa, status do CADIN, e finalidade da operação.
+
+## Acesso Online
+
+A aplicação está disponível online através do GitHub Pages:
+[https://milhomem.github.io/checklist_documentos_prd](https://milhomem.github.io/checklist_documentos_prd)
+
+## Desenvolvimento Local
+
+### Pré-requisitos
+
+- Node.js (versão 14 ou superior)
+- npm (normalmente vem com Node.js)
+
+### Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/milhomem/checklist_documentos_prd.git
+   cd checklist_documentos_prd
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
+
+4. Abra [http://localhost:8080](http://localhost:8080) no seu navegador.
+
+## Deployment
+
+Para fazer deploy da aplicação no GitHub Pages:
+
+1. Certifique-se de que todas as alterações estão commitadas e pushed para o GitHub.
+
+2. Execute o comando de deploy:
+   ```bash
+   npm run deploy
+   ```
+
+3. Aguarde alguns minutos até que o GitHub Pages atualize o site.
 
 ## Estrutura do Projeto
 
 ```
-├── public/
-│   ├── css/
-│   │   └── styles.css
-│   ├── js/
-│   │   └── script.js
-│   └── data/
-│       ├── rules_matrix.json
-│       └── document_types.json
-├── src/
-│   └── utils/
-│       ├── document_manager.js
-│       └── cli.js
+checklist_documentos_prd/
+├── css/
+│   └── styles.css
+├── data/
+│   ├── document_types.json
+│   ├── normas.json
+│   └── rules_matrix.json
+├── js/
+│   └── script.js
+├── index.html
+├── favicon.ico
+└── README.md
 ```
 
-## Regras de Negócio
+## Licença
 
-O arquivo `rules_matrix.json` contém as regras de DISPENSA de documentos. Importante: as regras definem quando um documento NÃO é necessário, nunca o contrário.
-
-## Configuração
-
-1. Clone o repositório
-2. Copie `.env.example` para `.env` e ajuste as configurações
-3. Execute `npm install`
-4. Execute `npm start`
-
-## Uso do CLI
-
-O sistema inclui uma ferramenta CLI para gerenciar documentos e regras:
-
-```bash
-node src/utils/cli.js
-```
-
-## Documentos Suportados
-
-- CND (Certidão Negativa de Débitos)
-- CRF (Certificado de Regularidade do FGTS)
-- CNDT (Certidão Negativa de Débitos Trabalhistas)
-- Declaração de Não Empregador
-- Autorização de Débito em Conta
-
-## Contribuição
-
-1. Faça um Fork do projeto
-2. Crie uma branch para sua feature
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request 
+ISC 

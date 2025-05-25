@@ -1,14 +1,18 @@
 {
-  "name": "checklist-documentos",
+  "name": "checklist-documentos-bnb",
   "version": "1.0.0",
-  "description": "Sistema de verificação de documentos necessários",
-  "main": "server.js",
+  "description": "Verificador de documentos necessários para operações do BNB",
+  "homepage": "https://milhomem.github.io/checklist_documentos_prd",
   "scripts": {
-    "start": "node --watch ./src/server/server.js",
-    "dev": "nodemon --watch ./src/server/server.js"
+    "start": "npx http-server . -o",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d .",
+    "build": "echo 'No build step needed'"
   },
-  "dependencies": {},
+  "author": "BNB",
+  "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "gh-pages": "^6.1.1"
   }
-} 
+}

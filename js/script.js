@@ -16,49 +16,14 @@ let regrasDocumentos = null;
 let tiposDocumentos = null;
 let normasData = null;
 
-// Função para carregar arquivo no ambiente Electron
-async function loadFileInElectron(filepath) {
-  try {
-    const fs = window.require('fs');
-    const path = window.require('path');
-    const { app } = window.require('@electron/remote');
-    
-    // Try to load from resources first
-    const resourcePath = process.env.NODE_ENV === 'development'
-      ? path.join(app.getAppPath(), 'public', filepath)
-      : path.join(process.resourcesPath, filepath.replace('data/', ''));
-    
-    console.log('Tentando carregar arquivo:', resourcePath);
-    
-    const data = await fs.promises.readFile(resourcePath, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error('Erro ao ler arquivo no Electron:', error);
-    throw error;
-  }
-}
-
-// Função para carregar arquivo via fetch (web)
-async function loadFileInWeb(filepath) {
-  const response = await fetch(filepath);
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  return response.json();
-}
-
 // Carregar as regras do arquivo JSON
 async function carregarRegras() {
   try {
-    const isElectron = window?.require ? true : false;
-    const loadFile = isElectron ? loadFileInElectron : loadFileInWeb;
-
     [regrasDocumentos, tiposDocumentos, normasData] = await Promise.all([
-      loadFile('data/rules_matrix.json'),
-      loadFile('data/document_types.json'),
-      loadFile('data/normas.json')
+      fetch('data/rules_matrix.json').then(res => res.json()),
+      fetch('data/document_types.json').then(res => res.json()),
+      fetch('data/normas.json').then(res => res.json())
     ]);
-
   } catch (erro) {
     console.error('Erro ao carregar os dados:', erro);
     showErrorNotification('Não foi possível carregar os dados. Por favor, tente novamente mais tarde.');
